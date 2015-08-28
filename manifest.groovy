@@ -1,12 +1,5 @@
 new File("imsmanifest.xml").withWriter { writer ->
-  def lessons = [
-    'Idee der BIM Methode, Interoperabilität über Disziplinen und Lebenszyklusphasen hinweg',
-    'Standards und Datenformate (z.B. IFC, GAEB, COBie, BIMsie ..), Persistenz in Datenbanken und Dateien',
-    'Multimodelle/Partialmodelle, domainenspezifische Modellsichten und geometrische Repräsentationen',
-    'Verteiltes Arbeiten, BIM-Server und -Services, Datenkonsistenz',
-    'Bedeutung von BIM im Facility Management und mögliche Nutzung im FM',
-    'Diverses (_wohin damit_)'
-  ]
+  def lessons = new File("lessons.txt").readLines()
   def xml = new groovy.xml.MarkupBuilder(writer)
   def helper = new groovy.xml.MarkupBuilderHelper(xml)
   helper.xmlDeclaration([version:'1.0', encoding:'UTF-8'])
